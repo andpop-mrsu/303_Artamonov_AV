@@ -1,0 +1,1 @@
+Python3, pip3, pandas, SQLite
