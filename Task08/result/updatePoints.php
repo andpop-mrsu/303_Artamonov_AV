@@ -2,13 +2,13 @@
 
 $studentTicket = $_GET['studentTicket'];
 $subjectId = $_GET['subjectId'];
-$pdo = new PDO('sqlite:../students.db');
+$pdo = new PDO('sqlite:../data/students.db');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $studentTicket = $_POST['studentTicket'];
     header("Location: examResult.php?id=$studentTicket");
 
-    $pdo = new PDO('sqlite:../students.db');
+    $pdo = new PDO('sqlite:../data/students.db');
     $sql = "update studentResults set points=? where studentId=? and groupSubjectId=?;";
     $statement = $pdo->prepare($sql);
     $statement->execute(

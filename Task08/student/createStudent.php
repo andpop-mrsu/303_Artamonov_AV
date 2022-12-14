@@ -1,6 +1,6 @@
 <?php
 
-$pdo = new PDO('sqlite:../students.db');
+$pdo = new PDO('sqlite:../data/students.db');
 $queryStart = <<<QUERY_START
 select case
            when cast(strftime('%Y', date('now')) as integer) - groups.registrationYear + 1 <= 4
@@ -84,6 +84,6 @@ SQL;
     </select>
     <input type="submit" value="Добавить">
 </form>
-<a href="../index.php">Назад</a>
+<a href="../public/index.php">Назад</a>
 </body>
 </html>

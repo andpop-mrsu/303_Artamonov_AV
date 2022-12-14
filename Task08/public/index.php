@@ -7,7 +7,7 @@
 <body>
 
 <?php
-$pdo = new PDO('sqlite:students.db');
+$pdo = new PDO('sqlite:data/students.db');
 
 $queryStart = <<<QUERY_START
 select case
@@ -115,7 +115,7 @@ QUERY;
 $statement = $pdo->query($query);
 $students = $statement->fetchAll();
 ?>
-<form action="student/createStudent.php">
+<form action="../student/createStudent.php">
     <input type="submit" value="Добавить студента">
 </form>
 <table class="studentTable" cellpadding="7" cellspacing="0" border="1" width="100%">
@@ -145,19 +145,19 @@ $students = $statement->fetchAll();
             <td><?= $student['birthdate'] ?></td>
             <td><?= $student['ticketNumber'] ?></td>
             <td>
-                <form action="student/updateStudent.php" method="GET">
+                <form action="../student/updateStudent.php" method="GET">
                     <input type="hidden" name="id" value=<?= $student['ticketNumber'] ?>>
                     <input type="submit" value="Изменить">
                 </form>
             </td>
             <td>
-                <form action="student/deleteStudent.php" method="GET">
+                <form action="../student/deleteStudent.php" method="GET">
                     <input type="hidden" name="id" value=<?= $student['ticketNumber'] ?>>
                     <input type="submit" value="Удалить">
                 </form>
             </td>
             <td>
-                <form action="result/examResult.php" method="GET">
+                <form action="../result/examResult.php" method="GET">
                     <input type="hidden" name="id" value=<?= $student['ticketNumber'] ?>>
                     <input type="submit" value="Результаты">
                 </form>

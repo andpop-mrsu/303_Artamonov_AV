@@ -3,7 +3,7 @@
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Location: ../index.php');
 
-    $pdo = new PDO('sqlite:../students.db');
+    $pdo = new PDO('sqlite:..data/students.db');
     $sql = "update students set surname=?, firstName=?, secondName=?, genderId=?, groupId=?, birthdate=? where studentTicket=?;";
     $statement = $pdo->prepare($sql);
     $statement->execute(
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 
-$pdo = new PDO('sqlite:../students.db');
+$pdo = new PDO('sqlite:..data/students.db');
 $queryStart = <<<QUERY_START
 select case
            when cast(strftime('%Y', date('now')) as integer) - groups.registrationYear + 1 <= 4
@@ -42,7 +42,7 @@ $studentNumber = $_GET['id'];
 
 $query = <<<QUERY
 select students.id                         as id,
-       groups.id                            as groupId,
+       groups.id                           as groupId,
        educationalDirections.directionName as direction,
        students.surname                    as surname,
        students.firstName                  as firstName,
@@ -100,6 +100,6 @@ $studentMap = $statement->fetchAll();
     </select>
     <input type="submit" value="Изменить">
 </form>
-<a href="../index.php">Назад</a>
+<a href="../public/index.php">Назад</a>
 </body>
 </html>

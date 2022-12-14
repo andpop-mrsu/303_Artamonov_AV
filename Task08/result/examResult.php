@@ -1,13 +1,13 @@
 <?php
 
 $studentTicket = $_GET['id'];
-$pdo = new PDO('sqlite:../students.db');
+$pdo = new PDO('sqlite:../data/students.db');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $studentTicket = $_POST['studentTicket'];
     header("Location: examResult.php?id=$studentTicket");
 
-    $pdo = new PDO('sqlite:../students.db');
+    $pdo = new PDO('sqlite:../data/students.db');
 
     $queryStart = <<<QUERY
 select subjects.subjectName    as subjectName,
@@ -132,7 +132,7 @@ $studentMap = $statement->fetchAll();
             <input type="hidden" name="studentTicket" value=<?= $studentMap[0]['studentTicket'] ?>>
             <input type="submit" value="Выставить оценки за экзамены">
         </form>
-        <a href="../index.php">Назад</a>
+        <a href="../public/index.php">Назад</a>
     </body>
 </html>
 
