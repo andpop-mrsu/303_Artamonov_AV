@@ -7,7 +7,7 @@
 <body>
 
 <?php
-$pdo = new PDO('sqlite:data/students.db');
+$pdo = new PDO('sqlite:../data/students.db');
 
 $queryStart = <<<QUERY_START
 select case

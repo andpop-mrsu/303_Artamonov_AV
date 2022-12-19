@@ -1,9 +1,9 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Location: ../index.php');
+    header('Location: ../public/index.php');
 
-    $pdo = new PDO('sqlite:..data/students.db');
+    $pdo = new PDO('sqlite:../data/students.db');
     $sql = "update students set surname=?, firstName=?, secondName=?, genderId=?, groupId=?, birthdate=? where studentTicket=?;";
     $statement = $pdo->prepare($sql);
     $statement->execute(
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     exit();
 }
 
-$pdo = new PDO('sqlite:..data/students.db');
+$pdo = new PDO('sqlite:../data/students.db');
 $queryStart = <<<QUERY_START
 select case
            when cast(strftime('%Y', date('now')) as integer) - groups.registrationYear + 1 <= 4

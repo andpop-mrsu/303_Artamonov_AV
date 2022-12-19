@@ -16,7 +16,7 @@ $groups = $statement->fetchAll();
 $statement->closeCursor();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Location: ../index.php');
+    header('Location: ../public/index.php');
 
     $sql = <<<SQL
 insert into students (studentTicket, surname, firstName, secondName, birthdate, genderId, groupId)
