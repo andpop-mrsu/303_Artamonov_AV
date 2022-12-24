@@ -1,5 +1,5 @@
 <?php
-header('Location: ../public/index.php');
+header('Location: index.php');
 
 $pdo = new PDO('sqlite:../data/students.db');
 $sql = "delete from students where studentTicket=?;";

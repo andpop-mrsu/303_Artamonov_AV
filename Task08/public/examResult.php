@@ -132,7 +132,7 @@ $studentMap = $statement->fetchAll();
             <input type="hidden" name="studentTicket" value=<?= $studentMap[0]['studentTicket'] ?>>
             <input type="submit" value="Выставить оценки за экзамены">
         </form>
-        <a href="../public/index.php">Назад</a>
+        <a href="index.php">Назад</a>
     </body>
 </html>
 

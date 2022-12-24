@@ -16,7 +16,7 @@ $groups = $statement->fetchAll();
 $statement->closeCursor();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Location: ../public/index.php');
+    header('Location: index.php');
 
     $sql = <<<SQL
 insert into students (studentTicket, surname, firstName, secondName, birthdate, genderId, groupId)
@@ -84,6 +84,6 @@ SQL;
     </select>
     <input type="submit" value="Добавить">
 </form>
-<a href="../public/index.php">Назад</a>
+<a href="index.php">Назад</a>
 </body>
 </html>

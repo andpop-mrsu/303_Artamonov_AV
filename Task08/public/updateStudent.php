@@ -1,7 +1,7 @@
 <?php
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    header('Location: ../public/index.php');
+    header('Location: index.php');
 
     $pdo = new PDO('sqlite:../data/students.db');
     $sql = "update students set surname=?, firstName=?, secondName=?, genderId=?, groupId=?, birthdate=? where studentTicket=?;";
@@ -100,6 +100,6 @@ $studentMap = $statement->fetchAll();
     </select>
     <input type="submit" value="Изменить">
 </form>
-<a href="../public/index.php">Назад</a>
+<a href="index.php">Назад</a>
 </body>
 </html>
